@@ -3,65 +3,497 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>We all answer if you touch one of us | Wir beantworten gemeinsam falls du eine von uns anfasst | Όλες απαντάμε αν αγγίξεις μία</title>
+<title>We all answer if you touch one of us</title>
 <style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    max-width: 800px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-    background: #fafafa;
+    padding: 2rem 1.5rem;
+    background: #faf9f6;
+    color: #1a1a1a;
+    line-height: 1.6;
   }
   h1 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  h2 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid #d4a373;
+  }
+  .subtitle {
+    text-align: center;
+    color: #555;
+    font-size: 0.85rem;
     margin-bottom: 2rem;
-    line-height: 1.5;
   }
-  .flyer {
-    margin-bottom: 2rem;
-  }
-  .flyer embed {
-    width: 100%;
-    max-width: 600px;
-    height: 800px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  .links {
+  .lang-labels { font-size: 0.75rem; color: #888; margin-bottom: 0.25rem; }
+  .nav-links {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
   }
-  .links a {
+  .nav-links a {
     display: inline-block;
-    padding: 0.75rem 2rem;
-    background: #333;
+    padding: 0.5rem 1.25rem;
+    background: #2a2a2a;
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
-    font-size: 1.1rem;
-    width: 100%;
-    max-width: 400px;
-    box-sizing: border-box;
+    font-size: 0.85rem;
+    font-weight: 500;
   }
-  .links a:hover {
-    background: #555;
+  .nav-links a:hover { background: #d4a373; }
+  .flyer { margin-bottom: 2rem; }
+  .flyer p { margin-bottom: 0.75rem; font-size: 0.9rem; }
+  .flyer .lang { margin-top: 1.2rem; }
+  .lang-label { font-weight: 600; font-size: 0.8rem; color: #d4a373; margin-bottom: 0.3rem; }
+  .chords-key {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+  }
+  .chords-key strong { color: #d4a373; }
+  .song-section { margin-top: 1.5rem; }
+  .song-header {
+    font-style: italic;
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+  .verse { margin-bottom: 1.25rem; }
+  .verse-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.3rem;
+  }
+  .chord-line {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.72rem;
+    color: #d4a373;
+    font-weight: 600;
+    white-space: pre-wrap;
+    margin-bottom: 0.1rem;
+  }
+  .lyric-line {
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    margin-bottom: 0.1rem;
+  }
+  .greek { font-family: 'Helvetica Neue', 'Arial', sans-serif; }
+  .transliteration .lyric-line { font-style: italic; color: #444; }
+  .translation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  @media (max-width: 600px) {
+    .translation-grid { grid-template-columns: 1fr; }
+  }
+  .translation-col p { margin-bottom: 0.5rem; font-size: 0.9rem; }
+  .translation-col .verse-label { margin-top: 1rem; }
+  hr { border: none; border-top: 1px solid #e0ddd7; margin: 2rem 0; }
+  footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e0ddd7;
   }
 </style>
 </head>
 <body>
-  <h1>We all answer if you touch one of us | Wir beantworten gemeinsam falls du eine von uns anfasst | Όλες απαντάμε αν αγγίξεις μία</h1>
 
-  <div class="flyer">
-    <embed src="flyer.pdf" type="application/pdf">
+<h1>We all answer if you touch one of us</h1>
+<p class="subtitle">Wir beantworten gemeinsam falls du eine von uns anfasst &middot; Όλες απαντάμε αν αγγίξεις μία</p>
+
+<div class="nav-links">
+  <a href="#greek">SING ALONG (greek)</a>
+  <a href="#latin">SING ALONG (latin)</a>
+  <a href="#accords">accords</a>
+</div>
+
+<div class="flyer">
+  <p><strong>FÊTE DE LA MUSIQUE 2026 | IN MEMORY OF ALL WOMEN LOST TO FEMICIDE</strong></p>
+  <p><em>A song against femicide and gender-based violence</em></p>
+
+  <div class="lang">
+    <div class="lang-label">DE</div>
+    <p>Heute singen wir ein Lied gegen Femizide und geschlechtsspezifische Gewalt.</p>
+    <p>In Griechenland wurden allein in den ersten 15 Tagen des Juni 2026 mindestens drei Femizide registriert. Damit steigt die Zahl der getöteten Frauen im ersten Halbjahr 2026 auf acht. Die meisten wurden von aktuellen oder ehemaligen Partnern getötet.</p>
+    <p>Dieses Problem betrifft nicht nur Griechenland: Weltweit wird alle zehn Minuten eine Frau von ihrem Partner, Ex-Partner oder einem Familienmitglied getötet.</p>
+    <p>Dieses Lied ist eine Stimme für jene Frauen, die nicht mehr sprechen können. Es erinnert daran, dass Gewalt gegen Frauen kein privates Problem ist, sondern eine gesellschaftliche Verantwortung.</p>
+    <p>Wir singen für Sicherheit, Würde, Freiheit und Gerechtigkeit.</p>
+    <p>Keine Frau sollte Angst haben müssen, nach Hause zu gehen.</p>
+    <p>Zum Gedenken an alle Opfer von Femiziden. &middot; Gegen das Schweigen. &middot; Gegen die Gewalt. &middot; In Solidarität.</p>
   </div>
 
-  <div class="links">
-    <a href="sign-along-greek.pdf">SING ALONG (greek)</a>
-    <a href="sign-along-latin.pdf">SING ALONG (latin)</a>
-    <a href="sign-along-greek.pdf">accords</a>
+  <div class="lang">
+    <div class="lang-label">EN</div>
+    <p>Today we sing a song against femicide and gender-based violence.</p>
+    <p>In Greece, at least three femicides were recorded during the first fifteen days of June 2026, bringing the total number of women killed in the first half of the year to eight. Most victims were killed by current or former partners.</p>
+    <p>This is not only a Greek issue: worldwide, a woman is killed every ten minutes by a current or former intimate partner or a family member.</p>
+    <p>This song gives voice to women who can no longer speak. It reminds us that violence against women is not a private matter but a responsibility of society as a whole.</p>
+    <p>We sing for safety, dignity, freedom, and justice.</p>
+    <p>No woman should have to fear going home.</p>
+    <p>In memory of all victims of femicide. &middot; Against silence. &middot; Against violence. &middot; In solidarity.</p>
   </div>
+
+  <div class="lang">
+    <div class="lang-label">EL</div>
+    <p>Σήμερα τραγουδάμε ένα τραγούδι ενάντια στις γυναικοκτονίες και την έμφυλη βία.</p>
+    <p>Στην Ελλάδα έχουν καταγραφεί τουλάχιστον τρεις γυναικοκτονίες μέσα στις πρώτες δεκαπέντε ημέρες του Ιουνίου 2026, ανεβάζοντας τον συνολικό αριθμό σε οκτώ γυναικοκτονίες για το πρώτο εξάμηνο του έτους. Οι περισσότερες γυναίκες δολοφονήθηκαν από νυν ή πρώην συντρόφους τους.</p>
+    <p>Το πρόβλημα δεν αφορά μόνο την Ελλάδα: παγκοσμίως, μία γυναίκα δολοφονείται κάθε δέκα λεπτά από σύντροφο, πρώην σύντροφο ή μέλος της οικογένειάς της.</p>
+    <p>Το τραγούδι αυτό είναι μια φωνή για όσες δεν μπορούν πλέον να μιλήσουν. Μας θυμίζει ότι η βία κατά των γυναικών δεν είναι ιδιωτική υπόθεση αλλά κοινωνική ευθύνη.</p>
+    <p>Τραγουδάμε για ασφάλεια, αξιοπρέπεια, ελευθερία και δικαιοσύνη.</p>
+    <p>Καμία γυναίκα δεν πρέπει να φοβάται να επιστρέψει στο σπίτι της.</p>
+    <p>Στη μνήμη όλων των θυμάτων γυναικοκτονίας. &middot; Ενάντια στη σιωπή &amp; τη βία.</p>
+  </div>
+</div>
+
+<hr>
+
+<!-- ====== GREEK ====== -->
+<section id="greek">
+<h2>Όλες απαντάμε αν αγγίξεις μία &ndash; Greek lyrics with chords</h2>
+<p class="song-header">2022 &middot; Ανοιχτή Ορχήστρα &middot; Μουσική/Στίχοι: Vivir Quintana</p>
+
+<div class="chords-key">
+  <strong>Key:</strong> D major &nbsp;|&nbsp;
+  <strong>Chords:</strong> D &middot; Em &middot; F#m &middot; G &middot; A &middot; Bm &middot; C#dim
+</div>
+
+<div class="song-section">
+
+  <div class="verse">
+    <div class="verse-label">Verse 1</div>
+    <div class="chord-line"><span class="chord">Bm</span>                    <span class="chord">D</span>                 <span class="chord">A</span>                 <span class="chord">G</span>    <span class="chord">F#</span>      <span class="chord">Bm</span></div>
+    <div class="lyric-line greek">Να τρέμει το κράτος, να κλείνουν οι δρόμοι</div>
+    <div class="chord-line">               <span class="chord">D</span></div>
+    <div class="lyric-line greek">Να τρέμει όποιος χέρι τολμά και σηκώνει</div>
+    <div class="chord-line">               <span class="chord">A</span></div>
+    <div class="lyric-line greek">Μας παίρνουν με βία, την ξεγνοιασιά</div>
+    <div class="chord-line">    <span class="chord">G (παύση)</span>            <span class="chord">Bm</span></div>
+    <div class="lyric-line greek">Μας φύτεψαν φόβο, μα φυτρώσαν φτερά</div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 2</div>
+    <div class="chord-line"><span class="chord">Bm</span>                                           <span class="chord">D</span></div>
+    <div class="lyric-line greek">Και κάθε λεπτό σχεδόν κάθε μέρα</div>
+    <div class="chord-line">               <span class="chord">A</span></div>
+    <div class="lyric-line greek">Θρηνούμε μια κόρη αδερφή και μητέρα</div>
+    <div class="chord-line">               <span class="chord">G</span>      <span class="chord">F# (παύση)</span>      <span class="chord">Bm</span></div>
+    <div class="lyric-line greek">Μέσα σε μια νύχτα μας εξαφανίζουν</div>
+    <div class="chord-line">                                                            <span class="chord">Bm</span></div>
+    <div class="lyric-line greek">Συνένοχος είναι όποιος σιωπά, σα μας αφανίζουν</div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Chorus</div>
+    <div class="chord-line"><span class="chord">Bm</span></div>
+    <div class="lyric-line greek">Για εκείνες τις νύχτες που γύριζα μόνη</div>
+    <div class="chord-line">               <span class="chord">D</span></div>
+    <div class="lyric-line greek">Στη θέα μιας μορφής το αίμα μου να παγώνει</div>
+    <div class="chord-line">               <span class="chord">A</span></div>
+    <div class="lyric-line greek">Για όλα τα χέρια που σφίγγουν κλειδιά</div>
+    <div class="chord-line">                                   <span class="chord">G</span>      <span class="chord">F#</span></div>
+    <div class="lyric-line greek">Γινόμαστε όλες μαζί μια γροθιά</div>
+    <div class="chord-line"><span class="chord">Bm</span></div>
+    <div class="lyric-line greek">Δικαίωμα δεν έχεις στο σώμα μου επάνω</div>
+    <div class="chord-line">               <span class="chord">D</span></div>
+    <div class="lyric-line greek">Δε σου πέφτει λόγος πού πάω και τι κάνω</div>
+    <div class="chord-line">               <span class="chord">A</span></div>
+    <div class="lyric-line greek">Δεν είναι αγάπη ο πόνος κι η βία</div>
+    <div class="chord-line">                                   <span class="chord">G</span>      <span class="chord">F# (παύση)</span>      <span class="chord">Bm</span></div>
+    <div class="lyric-line greek">Όλες απαντάμε, αν αγγίξεις μία</div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Verse 3</div>
+    <div class="chord-line"><span class="chord">Bm</span></div>
+    <div class="lyric-line greek">Κι αν δε το κατάλαβες τούτοι οι στίχοι</div>
+    <div class="chord-line">               <span class="chord">D</span></div>
+    <div class="lyric-line greek">Φωνάζουν πως βρίσκομαι εδώ από τύχη</div>
+    <div class="chord-line">               <span class="chord">A</span></div>
+    <div class="lyric-line greek">Με οργή τραγουδάω, ακούστε με όλοι</div>
+    <div class="chord-line">                                   <span class="chord">G</span>      <span class="chord">F#</span></div>
+    <div class="lyric-line greek">Στο σπίτι αν δεν έρθω, κάψτε την πόλη</div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Bridge</div>
+    <div class="chord-line"><span class="chord">D</span>               <span class="chord">A</span>                   <span class="chord">Em</span>              <span class="chord">F#</span></div>
+    <div class="lyric-line greek">Με λένε Ανίσα, Καρολάιν και Ελένη</div>
+    <div class="chord-line"><span class="chord">D</span>               <span class="chord">A</span>                   <span class="chord">Em</span>              <span class="chord">F# (παύση)</span>  <span class="chord">Bm</span></div>
+    <div class="lyric-line greek">Με σκότωσε το σύστημα που τους ξεπλένει</div>
+    <div class="chord-line"><span class="chord">D</span>               <span class="chord">A</span>                   <span class="chord">Em</span>              <span class="chord">F#</span></div>
+    <div class="lyric-line greek">Είμαι η Τζεβριέ, η Ζάκι, η Μαρία</div>
+    <div class="chord-line"><span class="chord">D</span>               <span class="chord">A</span>                   <span class="chord">Em</span>              <span class="chord">F#</span></div>
+    <div class="lyric-line greek">Νεκταρία, Ανθή, Ζωή, Αδαμαντία</div>
+    <div class="chord-line">                                             <span class="chord">G (παύση)</span>     <span class="chord">F# (παύση)</span>  <span class="chord">Bm</span></div>
+    <div class="lyric-line greek">Στο όνομα μου γράψτε νέα, ιστορία</div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-label">Chorus <em>(repeat once, then key change and repeat again)</em></div>
+    <div class="chord-line"><span class="chord">Bm</span></div>
+    <div class="lyric-line greek">Για εκείνες τις νύχτες που γύριζα μόνη</div>
+    <div class="chord-line">               <span class="chord">D</span></div>
+    <div class="lyric-line greek">Στη θέα μιας μορφής το αίμα μου να παγώνει</div>
+    <div class="chord-line">               <span class="chord">A</span></div>
+    <div class="lyric-line greek">Για όλα τα χέρια που σφίγγουν κλειδιά</div>
+    <div class="chord-line">                                   <span class="chord">G</span>      <span class="chord">F#</span></div>
+    <div class="lyric-line greek">Γινόμαστε όλες μαζί μια γροθιά</div>
+    <div class="chord-line"><span class="chord">Bm</span></div>
+    <div class="lyric-line greek">Δικαίωμα δεν έχεις στο σώμα μου επάνω</div>
+    <div class="chord-line">               <span class="chord">D</span></div>
+    <div class="lyric-line greek">Δε σου πέφτει λόγος πού πάω και τι κάνω</div>
+    <div class="chord-line">               <span class="chord">A</span></div>
+    <div class="lyric-line greek">Δεν είναι αγάπη ο πόνος κι η βία</div>
+    <div class="chord-line">                                   <span class="chord">G</span>      <span class="chord">F# (παύση)</span>  <span class="chord">Bm</span>          <span class="chord">Bm</span></div>
+    <div class="lyric-line greek">Όλες απαντάμε, αν αγγίξεις μία &nbsp; &mdash; &nbsp; Όλες απαντάμε, αν αγγίξεις μία</div>
+  </div>
+
+</div>
+</section>
+
+<hr>
+
+<!-- ====== LATIN ====== -->
+<section id="latin">
+<h2>Transliteration &amp; Translations</h2>
+<p class="song-header">Oles apantame an aggixeis mia</p>
+
+<div class="translation-grid">
+
+  <div class="translation-col">
+    <div class="lang-labels">Greek &mdash; Latin letters (transliteration)</div>
+
+    <div class="verse"><div class="verse-label">Verse 1</div>
+      <p>Na tremei to kratos, na kleinoun oi dromoi,<br>
+      Na tremei opoios cheri tolma kai sikonei.<br>
+      Mas pairnoun me via tin xegnoiasia,<br>
+      Mas fytepsan fovo, ma fytrosan ftera.</p>
+    </div>
+
+    <div class="verse"><div class="verse-label">Verse 2</div>
+      <p>Kai kathe lepto schedon kathe mera,<br>
+      Thrinoume mia kori, aderfi kai mitera.<br>
+      Mesa se mia nychta mas exafanizoun,<br>
+      Synenochos einai opoios siopa, san mas afanizoun.</p>
+    </div>
+
+    <div class="verse"><div class="verse-label">Chorus</div>
+      <p>Gia ekeines tis nychtes pou gyriza moni,<br>
+      Sti thea mias morfis to aima mou na pagonei.<br>
+      Gia ola ta cheria pou sfingoun kleidia,<br>
+      Ginomaste oles mazi mia grothia.<br>
+      Dikaioma den echeis sto soma mou epano,<br>
+      De sou peftei logos pou pao kai ti kano.<br>
+      Den einai agapi o ponos ki i via,<br>
+      Oles apantame, an aggixeis mia.</p>
+    </div>
+
+    <div class="verse"><div class="verse-label">Verse 3</div>
+      <p>Ki an de to katalaves toutoi oi stichoi,<br>
+      Fonazoun pos vriskomai edo apo tychi.<br>
+      Me orgi tragoudao, akouste me oloi,<br>
+      Sto spiti an den ertho, kapste tin poli.</p>
+    </div>
+
+    <div class="verse"><div class="verse-label">Bridge</div>
+      <p>Me lene Anisa, Karolain kai Eleni,<br>
+      Me skotose to systima pou tous xeplynei.<br>
+      Eimai i Tzevrie, i Zaki, i Maria,<br>
+      Nektaria, Anthi, Zoi, Adamantia.<br>
+      Sto onoma mou grapste nea istoria.</p>
+    </div>
+
+    <div class="verse"><div class="verse-label">Chorus</div>
+      <p>Gia ekeines tis nychtes pou gyriza moni,<br>
+      Sti thea mias morfis to aima mou na pagonei.<br>
+      Gia ola ta cheria pou sfingoun kleidia,<br>
+      Ginomaste oles mazi mia grothia.<br>
+      Dikaioma den echeis sto soma mou epano,<br>
+      De sou peftei logos pou pao kai ti kano.<br>
+      Den einai agapi o ponos ki i via,<br>
+      Oles apantame, an aggixeis mia.</p>
+    </div>
+  </div>
+
+  <div>
+    <div class="translation-col">
+      <div class="lang-labels">German &mdash; Deutsch</div>
+
+      <div class="verse"><div class="verse-label">Verse 1</div>
+        <p>Möge der Staat erzittern, mögen die Straßen sich schließen,<br>
+        Es soll jeder erzittern, der es wagt, die Hand gegen uns zu erheben.<br>
+        Sie rauben uns mit Gewalt unsere Unbeschwertheit,<br>
+        Sie pflanzten Angst in uns, doch es wuchsen Flügel daraus.</p>
+      </div>
+
+      <div class="verse"><div class="verse-label">Verse 2</div>
+        <p>Und beinahe jede Minute, fast jeden Tag,<br>
+        Betrauern wir eine Tochter, Schwester oder Mutter.<br>
+        Mitten in einer Nacht lassen sie uns verschwinden,<br>
+        Mitschuldig ist jeder, der schweigt, während man uns auslöscht.</p>
+      </div>
+
+      <div class="verse"><div class="verse-label">Chorus</div>
+        <p>Für all jene Nächte, in denen ich allein nach Hause ging,<br>
+        Und beim Anblick einer Gestalt mein Blut gefror.<br>
+        Für all die Hände, die Schlüssel fest umklammern,<br>
+        Werden wir gemeinsam zu einer einzigen Faust.<br>
+        Du hast kein Recht über meinen Körper,<br>
+        Es steht dir nicht zu, zu bestimmen, wohin ich gehe oder was ich tue.<br>
+        Schmerz und Gewalt sind keine Liebe.<br>
+        Wir antworten alle, wenn du eine von uns berührst.</p>
+      </div>
+
+      <div class="verse"><div class="verse-label">Verse 3</div>
+        <p>Und falls du es noch nicht verstanden hast,<br>
+        Dann schreien diese Verse, dass ich nur durch Glück noch hier bin.<br>
+        Voller Wut singe ich, hört mich alle an:<br>
+        Wenn ich nicht nach Hause komme, dann setzt die Stadt in Brand.</p>
+      </div>
+
+      <div class="verse"><div class="verse-label">Bridge</div>
+        <p>Mein Name ist Anisa, Caroline und Eleni,<br>
+        Mich tötete das System, das ihre Täter reinwäscht.<br>
+        Ich bin Tzevrie, Zakie und Maria,<br>
+        Nektaria, Anthi, Zoe und Adamantia.<br>
+        Schreibt in meinem Namen eine neue Geschichte.</p>
+      </div>
+
+      <div class="verse"><div class="verse-label">Chorus</div>
+        <p>Für all jene Nächte, in denen ich allein nach Hause ging,<br>
+        Und beim Anblick einer Gestalt mein Blut gefror.<br>
+        Für all die Hände, die Schlüssel fest umklammern,<br>
+        Werden wir gemeinsam zu einer einzigen Faust.<br>
+        Du hast kein Recht über meinen Körper,<br>
+        Es steht dir nicht zu, zu bestimmen, wohin ich gehe oder was ich tue.<br>
+        Schmerz und Gewalt sind keine Liebe.<br>
+        Wir antworten alle, wenn du eine von uns berührst.</p>
+      </div>
+    </div>
+
+    <div class="translation-col" style="margin-top: 1.5rem;">
+      <div class="lang-labels">English</div>
+
+      <div class="verse"><div class="verse-label">Verse 1</div>
+        <p>Let the state tremble, let the streets be closed,<br>
+        Let anyone tremble who dares to raise a hand against us.<br>
+        They take away our carefree lives by force,<br>
+        They planted fear in us, but wings grew instead.</p>
+      </div>
+
+      <div class="verse"><div class="verse-label">Verse 2</div>
+        <p>And almost every minute, almost every day,<br>
+        We mourn a daughter, a sister, a mother.<br>
+        In the middle of the night they make us disappear,<br>
+        Anyone who stays silent while we are erased is complicit.</p>
+      </div>
+
+      <div class="verse"><div class="verse-label">Chorus</div>
+        <p>For all those nights when I walked home alone,<br>
+        And at the sight of a figure my blood ran cold.<br>
+        For all the hands that clutch their keys tightly,<br>
+        We become one united fist.<br>
+        You have no right over my body,<br>
+        It is not your place to decide where I go or what I do.<br>
+        Pain and violence are not love.<br>
+        We all answer if you touch one of us.</p>
+      </div>
+
+      <div class="verse"><div class="verse-label">Verse 3</div>
+        <p>And if you still have not understood,<br>
+        These lyrics cry out that I am here only by chance.<br>
+        I sing with anger&mdash;listen, everyone:<br>
+        If I do not come home, burn the city down.</p>
+      </div>
+
+      <div class="verse"><div class="verse-label">Bridge</div>
+        <p>My name is Anisa, Caroline, and Eleni,<br>
+        I was killed by the system that washes their killers clean.<br>
+        I am Tzevrie, Zaki, and Maria,<br>
+        Nektaria, Anthi, Zoe, and Adamantia.<br>
+        Write a new history in my name.</p>
+      </div>
+
+      <div class="verse"><div class="verse-label">Chorus</div>
+        <p>For all those nights when I walked home alone,<br>
+        And at the sight of a figure my blood ran cold.<br>
+        For all the hands that clutch their keys tightly,<br>
+        We become one united fist.<br>
+        You have no right over my body,<br>
+        It is not your place to decide where I go or what I do.<br>
+        Pain and violence are not love.<br>
+        We all answer if you touch one of us.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<hr>
+
+<!-- ====== ACCORDS ====== -->
+<section id="accords">
+<h2>Accords &mdash; Chord reference</h2>
+<p class="song-header">Key of D major &middot; D &middot; Em &middot; F#m &middot; G &middot; A &middot; Bm &middot; C#dim</p>
+
+<div class="chords-key">
+  <strong>Scale degrees:</strong><br>
+  I: D &nbsp;|&nbsp; ii: Em &nbsp;|&nbsp; iii: F#m &nbsp;|&nbsp; IV: G &nbsp;|&nbsp; V: A &nbsp;|&nbsp; vi: Bm &nbsp;|&nbsp; vii&deg;: C#dim
+</div>
+
+<div class="song-section">
+
+<div class="verse">
+  <div class="verse-label">Verse</div>
+  <div class="chord-line">Bm &ndash; D &ndash; A &ndash; G &ndash; F# &ndash; Bm</div>
+</div>
+
+<div class="verse">
+  <div class="verse-label">Chorus</div>
+  <div class="chord-line">Bm &ndash; D &ndash; A &ndash; G &ndash; F# &ndash; Bm</div>
+  <div class="chord-line">Bm &ndash; D &ndash; A &ndash; G &ndash; F# (pause) &ndash; Bm</div>
+</div>
+
+<div class="verse">
+  <div class="verse-label">Bridge (names)</div>
+  <div class="chord-line">D &ndash; A &ndash; Em &ndash; F#</div>
+  <div class="chord-line">D &ndash; A &ndash; Em &ndash; F# (pause) &ndash; Bm</div>
+  <div class="chord-line">D &ndash; A &ndash; Em &ndash; F#</div>
+  <div class="chord-line">D &ndash; A &ndash; Em &ndash; F#</div>
+  <div class="chord-line">G (pause) &ndash; F# (pause) &ndash; Bm</div>
+</div>
+
+</div>
+</section>
+
+<footer>
+  In memory of all women lost to femicide.<br>
+  Fête de la Musique 2026
+</footer>
+
 </body>
 </html>
