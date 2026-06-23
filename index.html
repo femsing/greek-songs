@@ -53,10 +53,37 @@
     font-weight: 500;
   }
   .nav-links a:hover { background: #d4a373; }
-  .flyer { margin-bottom: 2rem; }
-  .flyer p { margin-bottom: 0.75rem; font-size: 0.9rem; }
-  .flyer .lang { margin-top: 1.2rem; }
-  .lang-label { font-weight: 600; font-size: 0.8rem; color: #d4a373; margin-bottom: 0.3rem; }
+  .flyer-container {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .flyer-container p { margin-bottom: 0.75rem; font-size: 0.9rem; }
+  .lang-tabs {
+    display: flex;
+    gap: 0;
+    margin: 1rem 0 1.25rem;
+    border-bottom: 2px solid #e0ddd7;
+  }
+  .lang-tab {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+  }
+  .lang-tab.active {
+    color: #d4a373;
+    border-bottom-color: #d4a373;
+  }
+  .lang-content { display: none; }
+  .lang-content.active { display: block; }
   .chords-key {
     background: #fff;
     border: 1px solid #ddd;
@@ -130,42 +157,46 @@
 </div>
 
 <div class="flyer">
-  <p><strong>FÊTE DE LA MUSIQUE 2026 | IN MEMORY OF ALL WOMEN LOST TO FEMICIDE</strong></p>
+  <p><strong>IN MEMORY OF ALL WOMEN LOST TO FEMICIDE</strong></p>
   <p><em>A song against femicide and gender-based violence</em></p>
 
-  <div class="lang">
-    <div class="lang-label">DE</div>
-    <p>Heute singen wir ein Lied gegen Femizide und geschlechtsspezifische Gewalt.</p>
-    <p>In Griechenland wurden allein in den ersten 15 Tagen des Juni 2026 mindestens drei Femizide registriert. Damit steigt die Zahl der getöteten Frauen im ersten Halbjahr 2026 auf acht. Die meisten wurden von aktuellen oder ehemaligen Partnern getötet.</p>
-    <p>Dieses Problem betrifft nicht nur Griechenland: Weltweit wird alle zehn Minuten eine Frau von ihrem Partner, Ex-Partner oder einem Familienmitglied getötet.</p>
-    <p>Dieses Lied ist eine Stimme für jene Frauen, die nicht mehr sprechen können. Es erinnert daran, dass Gewalt gegen Frauen kein privates Problem ist, sondern eine gesellschaftliche Verantwortung.</p>
-    <p>Wir singen für Sicherheit, Würde, Freiheit und Gerechtigkeit.</p>
-    <p>Keine Frau sollte Angst haben müssen, nach Hause zu gehen.</p>
-    <p>Zum Gedenken an alle Opfer von Femiziden. &middot; Gegen das Schweigen. &middot; Gegen die Gewalt. &middot; In Solidarität.</p>
-  </div>
+  <div class="flyer-container">
+    <div class="lang-tabs">
+      <button class="lang-tab active" onclick="switchLang('de')">DE</button>
+      <button class="lang-tab" onclick="switchLang('en')">EN</button>
+      <button class="lang-tab" onclick="switchLang('el')">EL</button>
+    </div>
 
-  <div class="lang">
-    <div class="lang-label">EN</div>
-    <p>Today we sing a song against femicide and gender-based violence.</p>
-    <p>In Greece, at least three femicides were recorded during the first fifteen days of June 2026, bringing the total number of women killed in the first half of the year to eight. Most victims were killed by current or former partners.</p>
-    <p>This is not only a Greek issue: worldwide, a woman is killed every ten minutes by a current or former intimate partner or a family member.</p>
-    <p>This song gives voice to women who can no longer speak. It reminds us that violence against women is not a private matter but a responsibility of society as a whole.</p>
-    <p>We sing for safety, dignity, freedom, and justice.</p>
-    <p>No woman should have to fear going home.</p>
-    <p>In memory of all victims of femicide. &middot; Against silence. &middot; Against violence. &middot; In solidarity.</p>
-  </div>
+    <div class="lang-content active" id="lang-de">
+      <p>Heute singen wir ein Lied gegen Femizide und geschlechtsspezifische Gewalt.</p>
+      <p>In Griechenland wurden allein in den ersten 15 Tagen des Juni 2026 mindestens drei Femizide registriert. Damit steigt die Zahl der getöteten Frauen im ersten Halbjahr 2026 auf acht. Die meisten wurden von aktuellen oder ehemaligen Partnern getötet.</p>
+      <p>Dieses Problem betrifft nicht nur Griechenland: Weltweit wird alle zehn Minuten eine Frau von ihrem Partner, Ex-Partner oder einem Familienmitglied getötet.</p>
+      <p>Dieses Lied ist eine Stimme für jene Frauen, die nicht mehr sprechen können. Es erinnert daran, dass Gewalt gegen Frauen kein privates Problem ist, sondern eine gesellschaftliche Verantwortung.</p>
+      <p>Wir singen für Sicherheit, Würde, Freiheit und Gerechtigkeit.</p>
+      <p>Keine Frau sollte Angst haben müssen, nach Hause zu gehen.</p>
+      <p>Zum Gedenken an alle Opfer von Femiziden. &middot; Gegen das Schweigen. &middot; Gegen die Gewalt. &middot; In Solidarität.</p>
+    </div>
 
-  <div class="lang">
-    <div class="lang-label">EL</div>
-    <p>Σήμερα τραγουδάμε ένα τραγούδι ενάντια στις γυναικοκτονίες και την έμφυλη βία.</p>
-    <p>Στην Ελλάδα έχουν καταγραφεί τουλάχιστον τρεις γυναικοκτονίες μέσα στις πρώτες δεκαπέντε ημέρες του Ιουνίου 2026, ανεβάζοντας τον συνολικό αριθμό σε οκτώ γυναικοκτονίες για το πρώτο εξάμηνο του έτους. Οι περισσότερες γυναίκες δολοφονήθηκαν από νυν ή πρώην συντρόφους τους.</p>
-    <p>Το πρόβλημα δεν αφορά μόνο την Ελλάδα: παγκοσμίως, μία γυναίκα δολοφονείται κάθε δέκα λεπτά από σύντροφο, πρώην σύντροφο ή μέλος της οικογένειάς της.</p>
-    <p>Το τραγούδι αυτό είναι μια φωνή για όσες δεν μπορούν πλέον να μιλήσουν. Μας θυμίζει ότι η βία κατά των γυναικών δεν είναι ιδιωτική υπόθεση αλλά κοινωνική ευθύνη.</p>
-    <p>Τραγουδάμε για ασφάλεια, αξιοπρέπεια, ελευθερία και δικαιοσύνη.</p>
-    <p>Καμία γυναίκα δεν πρέπει να φοβάται να επιστρέψει στο σπίτι της.</p>
-    <p>Στη μνήμη όλων των θυμάτων γυναικοκτονίας. &middot; Ενάντια στη σιωπή &amp; τη βία.</p>
+    <div class="lang-content" id="lang-en">
+      <p>Today we sing a song against femicide and gender-based violence.</p>
+      <p>In Greece, at least three femicides were recorded during the first fifteen days of June 2026, bringing the total number of women killed in the first half of the year to eight. Most victims were killed by current or former partners.</p>
+      <p>This is not only a Greek issue: worldwide, a woman is killed every ten minutes by a current or former intimate partner or a family member.</p>
+      <p>This song gives voice to women who can no longer speak. It reminds us that violence against women is not a private matter but a responsibility of society as a whole.</p>
+      <p>We sing for safety, dignity, freedom, and justice.</p>
+      <p>No woman should have to fear going home.</p>
+      <p>In memory of all victims of femicide. &middot; Against silence. &middot; Against violence. &middot; In solidarity.</p>
+    </div>
+
+    <div class="lang-content" id="lang-el">
+      <p>Σήμερα τραγουδάμε ένα τραγούδι ενάντια στις γυναικοκτονίες και την έμφυλη βία.</p>
+      <p>Στην Ελλάδα έχουν καταγραφεί τουλάχιστον τρεις γυναικοκτονίες μέσα στις πρώτες δεκαπέντε ημέρες του Ιουνίου 2026, ανεβάζοντας τον συνολικό αριθμό σε οκτώ γυναικοκτονίες για το πρώτο εξάμηνο του έτους. Οι περισσότερες γυναίκες δολοφονήθηκαν από νυν ή πρώην συντρόφους τους.</p>
+      <p>Το πρόβλημα δεν αφορά μόνο την Ελλάδα: παγκοσμίως, μία γυναίκα δολοφονείται κάθε δέκα λεπτά από σύντροφο, πρώην σύντροφο ή μέλος της οικογένειάς της.</p>
+      <p>Το τραγούδι αυτό είναι μια φωνή για όσες δεν μπορούν πλέον να μιλήσουν. Μας θυμίζει ότι η βία κατά των γυναικών δεν είναι ιδιωτική υπόθεση αλλά κοινωνική ευθύνη.</p>
+      <p>Τραγουδάμε για ασφάλεια, αξιοπρέπεια, ελευθερία και δικαιοσύνη.</p>
+      <p>Καμία γυναίκα δεν πρέπει να φοβάται να επιστρέψει στο σπίτι της.</p>
+      <p>Στη μνήμη όλων των θυμάτων γυναικοκτονίας. &middot; Ενάντια στη σιωπή &amp; τη βία.</p>
+    </div>
   </div>
-</div>
 
 <hr>
 
@@ -491,9 +522,16 @@
 </section>
 
 <footer>
-  In memory of all women lost to femicide.<br>
-  Fête de la Musique 2026
+  In memory of all women lost to femicide.
 </footer>
 
+<script>
+function switchLang(lang) {
+  document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-tab').forEach(el => el.classList.remove('active'));
+  document.getElementById('lang-' + lang).classList.add('active');
+  document.querySelector('.lang-tab[onclick*="' + lang + '"]').classList.add('active');
+}
+</script>
 </body>
 </html>
