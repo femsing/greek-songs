@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sing Along — QR</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 2rem;
+    background: #fff;
+  }
+  .card {
+    border: 2px solid #b34242;
+    border-radius: 16px;
+    padding: 3rem 2.5rem;
+    max-width: 500px;
+    width: 100%;
+  }
+  .qr {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1.5rem;
+  }
+  h1 { font-size: 1.6rem; color: #b34242; margin-bottom: 0.5rem; }
+  .song-title { font-size: 1.2rem; color: #333; margin-bottom: 0.3rem; }
+  .artist { font-size: 0.9rem; color: #777; margin-bottom: 2rem; }
+  .print-btn {
+    display: inline-block;
+    padding: 0.6rem 2rem;
+    background: #b34242;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+  }
+  .print-btn:hover { background: #8a2e2e; }
+  @page { margin: 0; }
+  @media print {
+    @page { margin: 0; }
+    .print-btn { display: none; }
+    body { padding: 0.5rem; }
+    .card { border: 1px solid #ccc; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <img class="qr" src="QR-code.jpg" alt="QR Code">
+  <h1>Sing Along</h1>
+  <p class="song-title">Όλες απαντάμε αν αγγίξεις μία</p>
+  <p class="artist">Ανοιχτή Ορχήστρα · Vivir Quintana</p>
+  <button class="print-btn" onclick="window.print()">Print QR</button>
+</div>
+</body>
+</html>
