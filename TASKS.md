@@ -1,6 +1,7 @@
 # Tasks to Todo
-* remove FÊTE DE LA MUSIQUE 2026 keep only IN MEMORY OF ALL WOMEN LOST TO FEMICIDE
-* make the text below IN MEMORY OF ALL WOMEN LOST TO FEMICIDE 
-    - showing in a container
-    -  make DE/EN/EL a top toggle
+* what is under "Όλες απαντάμε αν αγγίξεις μία" 
+    - add a title Sign along 
+    - remove the accord
+* add a toggle EL/Latin and put in lating toggle the Greek — Latin letters (transliteration) from the section below
+* the sign along section should have the EL/Latin toggle with the lyrics content
 
