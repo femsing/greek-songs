@@ -1,3 +1,11 @@
 # Tasks to Todo
-* We want to remove totally the last section Accords, and when the link Accords on top is clicked, it should open the PDF with the Greek version plus Accords. 
-* Fix the button "sing alone Latin" that goes to the translations to go to the Latin "sing along". 
+* Change 
+    Wir beantworten gemeinsam falls du eine von uns anfasst 
+    for 
+    Wir alle werden antworten, wenn du eine von uns berührst
+    in all the page
+* for the genman text replace Verse with Vers
+* change the title to show the greek first, then the spanish, then english and then the german, in spanish it is "Canción sin miedo"
+* add a note at the top of the translations
+This is a free form direct translation of the greek lyrics. The song has original spanish version and german one see
+https://fvcourage.de/cancion-sin-miedo-gesang-ohne-angst/
